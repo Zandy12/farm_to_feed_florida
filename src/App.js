@@ -1,6 +1,5 @@
 // Import libraries
 import React from 'react';
-import { Link } from 'react-router-dom'
 
 // Import images
 import officeDepot from './images/office-depot.jpg';
@@ -91,7 +90,7 @@ function App() {
             </div>
             <p>START PLANTING!</p>
           </div>
-          <iframe title="Farm to Feed Florida" width="600" height="450" />
+          <iframe title="Farm to Feed Florida" id="app-frame" src="https://playcanv.as/e/p/BtcoDAra/" width="600" height="450"></iframe>
           <div className="people-fed">
             <p className="score">YOU'VE PROVIDED MEALS FOR {peopleFed} SO FAR!</p>
           </div>

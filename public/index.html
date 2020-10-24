@@ -13,6 +13,23 @@
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <title>Farm to Feed Florida</title>
   </head>
+  <script>
+    // Assign handler to message event
+    if ( window.addEventListener ) {
+        window.addEventListener('message', handleMessage, false);
+    } else if ( window.attachEvent ) { // ie8
+        window.attachEvent('onmessage', handleMessage);
+    }
+    // message event handler (e is event object) 
+    function handleMessage(e) {
+        // Reference to element for data display
+        document.innerHTML = e.data;
+    console.log(e.data);
+    /* bubble_fn_1(e.data.command);
+    bubble_fn_2(e.data.number);
+    bubble_fn_3(e.data.string); */
+    }
+  </script>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
