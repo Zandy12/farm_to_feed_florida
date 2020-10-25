@@ -18,7 +18,7 @@ let playcanvasString;
 let peopleFed = 0;
 let player = 'Zane';
 
-const messageHandler = () => {
+/* const messageHandler = () => {
   // Assign handler to message event
   if ( window.addEventListener ) {
       window.addEventListener('message', handleMessage, false);
@@ -37,7 +37,7 @@ const messageHandler = () => {
     console.log(playcanvasNumber);
     console.log(playcanvasString);
   }
-}
+} */
 
 function App() {
 
@@ -112,10 +112,9 @@ function App() {
             <p>START PLANTING!</p>
           </div>
           <iframe title="Farm to Feed Florida" id="app-frame" src="https://playcanv.as/e/p/BtcoDAra/" width="600" height="450"></iframe>
-          { () => {
-            messageHandler();
-            console.log("Hello World!");
-          }}
+          {
+            messageHandler()
+          }
           <div className="people-fed">
             <p className="score">YOU'VE PROVIDED MEALS FOR {peopleFed} SO FAR!</p>
           </div>
