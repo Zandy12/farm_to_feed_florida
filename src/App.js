@@ -12,9 +12,16 @@ import hamburgerIcon from './images/hamburger-icon.png';
 // Import CSS
 import './App.css';
 
+function initializeSeeds(n) {
+  document.getElementById("app-frame").contentWindow.postMessage({
+    command: "b-seedCounterUpdate",
+    number: n.toString()
+  }, "https://playcanv.as");
+}
+
 function App() {
 
-  let seeds = 0;
+  let seeds = e.data.number;
   let peopleFed = 0;
   let player = 'Zane';
 
@@ -89,6 +96,7 @@ function App() {
             <p>START PLANTING!</p>
           </div>
           <iframe title="Farm to Feed Florida" id="app-frame" src="https://playcanv.as/e/p/BtcoDAra/" width="600" height="450"></iframe>
+          { initializeSeeds(100) }
           <div className="people-fed">
             <p className="score">YOU'VE PROVIDED MEALS FOR {peopleFed} SO FAR!</p>
           </div>
