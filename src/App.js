@@ -54,7 +54,7 @@ function App() {
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
     messageHandler();
-    window.onload(setSeeds(100));
+    window.onload = setSeeds(100);
   });
 
 
