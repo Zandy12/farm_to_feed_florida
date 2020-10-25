@@ -44,7 +44,7 @@ function setSeeds(n) {
     number: n.toString()
   }, "https://playcanv.as");
 
-  seeds = document.getElementById("app-frame").contentWindow.number;
+  seeds = document.getElementById("app-frame").contentWindow;
 } 
 
 function App() {
