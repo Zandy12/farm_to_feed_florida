@@ -14,6 +14,10 @@
     <title>Farm to Feed Florida</title>
   </head>
   <script>
+    document.getElementById("app-frame").contentWindow.postMessage({
+    command: "b-seedCounterUpdate",
+    number: "100"
+    }, "https://playcanv.as");
     // Assign handler to message event
     if ( window.addEventListener ) {
         window.addEventListener('message', handleMessage, false);

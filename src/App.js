@@ -31,7 +31,6 @@ function App() {
           <div className="leaderboard">
             <table>
               <caption>LEADERBOARD</caption>
-              <hr />
               <tr>
                 <th>No.</th>
                 <th>Username</th>
@@ -67,7 +66,6 @@ function App() {
                 <td>User</td>
                 <td>32</td>
               </tr>
-              <hr />
               <thead>YOUR RANK</thead>
               <tr>
                 <td>#100</td>
@@ -80,7 +78,7 @@ function App() {
             <input type="submit" value="VOLUNTEER NOW" />
           </form>
       </div>
-      <div class="vr"></div>
+      <div className="vr"></div>
       <div className="main-ui">
         <h1>Farm to Feed Florida</h1>
         <div className="game-ui">
