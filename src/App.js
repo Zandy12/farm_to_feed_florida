@@ -38,21 +38,13 @@ function messageHandler() {
   }
 }
 
-function setSeeds(n) {
-  document.getElementById("app-frame").contentWindow.postMessage({
-    command: "b-seedCounterUpdate",
-    number: n.toString()
-  }, "https://playcanv.as");
-
-  //seeds = document.getElementById("app-frame").contentWindow.number;
-
-  console.log("Seeds: " + seeds);
-} 
-
 function App() {
 
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
+    document.getElementById("app-frame").contentWindow.postMessage({
+      number: 100,
+    }, "https://playcanv.as")
     messageHandler();
   });
 
@@ -128,6 +120,12 @@ function App() {
             <p>START PLANTING!</p>
           </div>
           <iframe title="Farm to Feed Florida" id="app-frame" src="https://playcanv.as/e/p/BtcoDAra/" width="600" height="450"></iframe>
+          {
+            setTimeout(function(){ 
+              document.getElementById("app-frame").contentWindow.postMessage({
+                number: 100,
+              }, "https://playcanv.as") }, 3000)
+          }
           <div className="people-fed">
             <p className="score">YOU'VE PROVIDED MEALS FOR {peopleFed} SO FAR!</p>
           </div>
