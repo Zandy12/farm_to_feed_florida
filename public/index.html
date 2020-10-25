@@ -17,24 +17,4 @@
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
   </body>
-  <script>
-    // Assign handler to message event
-    if ( window.addEventListener ) {
-        window.addEventListener('message', handleMessage, false);
-    } else if ( window.attachEvent ) { // ie8
-        window.attachEvent('onmessage', handleMessage);
-    }
-    // message event handler (e is event object) 
-    function handleMessage(e) {
-        // Reference to element for data display
-        document.innerHTML = e.data;
-    console.log(e.data);
-    let playcanvasCommand = e.data.command;
-    let playcanvasNumber = e.data.number;
-    let playcanvasString = e.data.string;
-    console.log(playcanvasCommand);
-    console.log(playcanvasNumber);
-    console.log(playcanvasString);
-    }
-  </script>
 </html>

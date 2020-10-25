@@ -12,8 +12,32 @@ import hamburgerIcon from './images/hamburger-icon.png';
 // Import CSS
 import './App.css';
 
+let playcanvasCommand;
+let playcanvasNumber;
+let playcanvasString;
 let peopleFed = 0;
 let player = 'Zane';
+
+const messageHandler = () => {
+  // Assign handler to message event
+  if ( window.addEventListener ) {
+      window.addEventListener('message', handleMessage, false);
+  } else if ( window.attachEvent ) { // ie8
+      window.attachEvent('onmessage', handleMessage);
+  }
+  // message event handler (e is event object) 
+  function handleMessage(e) {
+    // Reference to element for data display
+    document.innerHTML = e.data;
+    console.log(e.data);
+    playcanvasCommand = e.data.command;
+    playcanvasNumber = e.data.number;
+    playcanvasString = e.data.string;
+    console.log(playcanvasCommand);
+    console.log(playcanvasNumber);
+    console.log(playcanvasString);
+  }
+}
 
 function App() {
 
@@ -88,6 +112,9 @@ function App() {
             <p>START PLANTING!</p>
           </div>
           <iframe title="Farm to Feed Florida" id="app-frame" src="https://playcanv.as/e/p/BtcoDAra/" width="600" height="450"></iframe>
+          { () => {
+            messageHandler();
+          }}
           <div className="people-fed">
             <p className="score">YOU'VE PROVIDED MEALS FOR {peopleFed} SO FAR!</p>
           </div>
