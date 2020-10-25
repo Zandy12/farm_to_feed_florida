@@ -1,5 +1,5 @@
 // Import libraries
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // Import images
 import officeDepot from './images/office-depot.jpg';
@@ -13,7 +13,7 @@ import hamburgerIcon from './images/hamburger-icon.png';
 import './App.css';
 
 let playcanvasCommand;
-let playcanvasNumber;
+let seeds;
 let playcanvasString;
 let peopleFed = 0;
 let player = 'Zane';
@@ -31,15 +31,29 @@ function messageHandler() {
     document.innerHTML = e.data;
     console.log(e.data);
     playcanvasCommand = e.data.command;
-    playcanvasNumber = e.data.number;
+    seeds = e.data.number;
     playcanvasString = e.data.string;
     console.log(playcanvasCommand);
-    console.log(playcanvasNumber);
+    console.log(seeds);
     console.log(playcanvasString);
   }
 }
 
+function setSeeds(n) {
+  document.getElementById("app-frame").contentWindow.postMessage({
+    command: "b-seedCounterUpdate",
+    number: n.toString()
+    }, "https://playcanv.as")
+}
+
 function App() {
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    setSeeds(100);
+    messageHandler();
+  });
+
 
   return (
     <div className="app">
@@ -107,7 +121,7 @@ function App() {
         <div className="game-ui">
           <div className="seeds">
             <div className="score">
-              <p>{/* seeds */} SEEDS</p>
+              <p>{seeds} SEEDS</p>
             </div>
             <p>START PLANTING!</p>
           </div>
