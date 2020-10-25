@@ -29,7 +29,7 @@ function messageHandler() {
     // Reference to element for data display
     document.innerHTML = e.data;
     //console.log(e.data);
-    playcanvasCommand = e.data.command; 
+    //playcanvasCommand = e.data.command; 
     seeds = e.data.number;
     /* playcanvasString = e.data.string;
     console.log(playcanvasCommand); */
