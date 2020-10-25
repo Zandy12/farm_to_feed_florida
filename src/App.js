@@ -19,12 +19,11 @@ let peopleFed = 0;
 let player = 'Zane';
 
 function messageHandler() {
-  // Assign handler to message event
   if ( window.addEventListener ) {
-      window.addEventListener('message', handleMessage, false);
+    window.addEventListener('message', handleMessage, false);
   } else if ( window.attachEvent ) { // ie8
       window.attachEvent('onmessage', handleMessage);
-  }
+  }  
   // message event handler (e is event object) 
   function handleMessage(e) {
     // Reference to element for data display
@@ -40,28 +39,17 @@ function messageHandler() {
 }
 
 function setSeeds(n) {
-  document.getElementById("app-frame").contentWindow.postMessage({
+    document.getElementById("app-frame").contentWindow.postMessage({
     command: "b-seedCounterUpdate",
-    number: n.toString()
-    }, "https://playcanv.as");
-  // message event handler (e is event object) 
-  function handleMessage(e) {
-    // Reference to element for data display
-    document.innerHTML = e.data;
-    console.log(e.data);
-    playcanvasCommand = e.data.command;
-    seeds = e.data.number;
-    playcanvasString = e.data.string;
-    console.log(playcanvasCommand);
-    console.log(seeds);
-    console.log(playcanvasString);
-  }
-}
+    number: "100"
+  }, "https://playcanv.as");
+} 
 
 function App() {
 
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
+    messageHandler();
     setSeeds(100);
     messageHandler();
   });
