@@ -18,7 +18,7 @@ let playcanvasString;
 let peopleFed = 0;
 let player = 'Zane';
 
-/* const messageHandler = () => {
+function messageHandler() {
   // Assign handler to message event
   if ( window.addEventListener ) {
       window.addEventListener('message', handleMessage, false);
@@ -37,7 +37,7 @@ let player = 'Zane';
     console.log(playcanvasNumber);
     console.log(playcanvasString);
   }
-} */
+}
 
 function App() {
 
