@@ -12,9 +12,9 @@ import hamburgerIcon from './images/hamburger-icon.png';
 // Import CSS
 import './App.css';
 
-let playcanvasCommand;
+//let playcanvasCommand;
+//let playcanvasString;
 let seeds;
-let playcanvasString;
 let peopleFed = 0;
 let player = 'Zane';
 
@@ -29,20 +29,22 @@ function messageHandler() {
     // Reference to element for data display
     document.innerHTML = e.data;
     console.log(e.data);
-    playcanvasCommand = e.data.command;
+    /* playcanvasCommand = e.data.command;
     seeds = e.data.number;
     playcanvasString = e.data.string;
     console.log(playcanvasCommand);
     console.log(seeds);
-    console.log(playcanvasString);
+    console.log(playcanvasString); */
   }
 }
 
 function setSeeds(n) {
-    document.getElementById("app-frame").contentWindow.postMessage({
+  document.getElementById("app-frame").contentWindow.postMessage({
     command: "b-seedCounterUpdate",
-    number: "100"
+    number: n.toString()
   }, "https://playcanv.as");
+
+  seeds = document.getElementById("app-frame").contentWindow.number;
 } 
 
 function App() {
@@ -52,6 +54,7 @@ function App() {
     messageHandler();
     setSeeds(100);
     messageHandler();
+    console.log("Seeds: " + seeds);
   });
 
 
