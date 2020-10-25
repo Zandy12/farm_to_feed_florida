@@ -107,13 +107,14 @@ function App() {
         <div className="game-ui">
           <div className="seeds">
             <div className="score">
-              <p>{/* seeds */} SEEDS</p>
+              <p>{seeds} SEEDS</p>
             </div>
             <p>START PLANTING!</p>
           </div>
           <iframe title="Farm to Feed Florida" id="app-frame" src="https://playcanv.as/e/p/BtcoDAra/" width="600" height="450"></iframe>
           { () => {
             messageHandler();
+            console.log("Hello World!");
           }}
           <div className="people-fed">
             <p className="score">YOU'VE PROVIDED MEALS FOR {peopleFed} SO FAR!</p>
