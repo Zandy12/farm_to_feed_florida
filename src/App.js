@@ -28,13 +28,13 @@ function messageHandler() {
   function handleMessage(e) {
     // Reference to element for data display
     document.innerHTML = e.data;
-    console.log(e.data);
-    /* playcanvasCommand = e.data.command;
+    //console.log(e.data);
+    playcanvasCommand = e.data.command; 
     seeds = e.data.number;
-    playcanvasString = e.data.string;
-    console.log(playcanvasCommand);
+    /* playcanvasString = e.data.string;
+    console.log(playcanvasCommand); */
     console.log(seeds);
-    console.log(playcanvasString); */
+    //console.log(playcanvasString); 
   }
 }
 
@@ -42,9 +42,6 @@ function App() {
 
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
-    document.getElementById("app-frame").contentWindow.postMessage({
-      number: 100,
-    }, "https://playcanv.as")
     messageHandler();
   });
 
