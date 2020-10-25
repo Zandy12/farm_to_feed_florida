@@ -12,7 +12,7 @@ import hamburgerIcon from './images/hamburger-icon.png';
 // Import CSS
 import './App.css';
 
-let seeds;
+let seeds = 0;
 let peopleFed = 0;
 let player = 'Zane';
 
