@@ -107,7 +107,7 @@ function App() {
         <div className="game-ui">
           <div className="seeds">
             <div className="score">
-              <p>{seeds} SEEDS</p>
+              <p>{/* seeds */} SEEDS</p>
             </div>
             <p>START PLANTING!</p>
           </div>
