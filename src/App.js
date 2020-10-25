@@ -45,6 +45,8 @@ function setSeeds(n) {
   }, "https://playcanv.as");
 
   seeds = document.getElementById("app-frame").contentWindow.number;
+
+  console.log("Seeds: " + seeds);
 } 
 
 function App() {
@@ -52,9 +54,7 @@ function App() {
   // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
     messageHandler();
-    setSeeds(100);
-    messageHandler();
-    console.log("Seeds: " + seeds);
+    window.onload(setSeeds(100));
   });
 
 
@@ -129,12 +129,6 @@ function App() {
             <p>START PLANTING!</p>
           </div>
           <iframe title="Farm to Feed Florida" id="app-frame" src="https://playcanv.as/e/p/BtcoDAra/" width="600" height="450"></iframe>
-          {
-            setSeeds(100)
-          }
-          {
-            console.log("Seeds: " + seeds)
-          }
           <div className="people-fed">
             <p className="score">YOU'VE PROVIDED MEALS FOR {peopleFed} SO FAR!</p>
           </div>
