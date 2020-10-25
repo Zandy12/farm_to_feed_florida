@@ -12,6 +12,27 @@ import hamburgerIcon from './images/hamburger-icon.png';
 // Import CSS
 import './App.css';
 
+let seeds = 0;
+let peopleFed = 0;
+let player = 'Zane';
+
+// Assign handler to message event
+if ( window.addEventListener ) {
+    window.addEventListener('message', handleMessage, false);
+} else if ( window.attachEvent ) { // ie8
+    window.attachEvent('onmessage', handleMessage);
+}
+
+function handleMessage(e) {
+  // Reference to element for data display
+  document.innerHTML = e.data;
+console.log(e.data);
+seeds = e.data.number;
+//bubble_fn_1(e.data.command);
+//bubble_fn_2(e.data.number);
+//bubble_fn_3(e.data.string);
+}
+
 function initializeSeeds(n) {
   document.getElementById("app-frame").contentWindow.postMessage({
     command: "b-seedCounterUpdate",
@@ -20,10 +41,6 @@ function initializeSeeds(n) {
 }
 
 function App() {
-
-  let seeds = e.data.number;
-  let peopleFed = 0;
-  let player = 'Zane';
 
   return (
     <div className="app">
