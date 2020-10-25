@@ -44,7 +44,7 @@ function setSeeds(n) {
     number: n.toString()
   }, "https://playcanv.as");
 
-  seeds = document.getElementById("app-frame").contentWindow;
+  seeds = document.getElementById("app-frame").contentWindow.number;
 } 
 
 function App() {
@@ -130,7 +130,10 @@ function App() {
           </div>
           <iframe title="Farm to Feed Florida" id="app-frame" src="https://playcanv.as/e/p/BtcoDAra/" width="600" height="450"></iframe>
           {
-            messageHandler()
+            setSeeds(100)
+          }
+          {
+            console.log("Seeds: " + seeds)
           }
           <div className="people-fed">
             <p className="score">YOU'VE PROVIDED MEALS FOR {peopleFed} SO FAR!</p>
