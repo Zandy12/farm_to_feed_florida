@@ -1,5 +1,5 @@
 // Import libraries
-import React, { useEffect } from 'react';
+import React from 'react';
 
 // Import images
 import officeDepot from './images/office-depot.jpg';
@@ -12,39 +12,11 @@ import hamburgerIcon from './images/hamburger-icon.png';
 // Import CSS
 import './App.css';
 
-//let playcanvasCommand;
-//let playcanvasString;
 let seeds;
 let peopleFed = 0;
 let player = 'Zane';
 
-function messageHandler() {
-  if ( window.addEventListener ) {
-    window.addEventListener('message', handleMessage, false);
-  } else if ( window.attachEvent ) { // ie8
-      window.attachEvent('onmessage', handleMessage);
-  }  
-  // message event handler (e is event object) 
-  function handleMessage(e) {
-    // Reference to element for data display
-    document.innerHTML = e.data;
-    //console.log(e.data);
-    //playcanvasCommand = e.data.command; 
-    seeds = e.data.number;
-    /* playcanvasString = e.data.string;
-    console.log(playcanvasCommand); */
-    console.log(seeds);
-    //console.log(playcanvasString); 
-  }
-}
-
 function App() {
-
-  // Similar to componentDidMount and componentDidUpdate:
-  useEffect(() => {
-    messageHandler();
-  });
-
 
   return (
     <div className="app">
@@ -117,12 +89,6 @@ function App() {
             <p>START PLANTING!</p>
           </div>
           <iframe title="Farm to Feed Florida" id="app-frame" src="https://playcanv.as/e/p/BtcoDAra/" width="600" height="450"></iframe>
-          {
-            setTimeout(function(){ 
-              document.getElementById("app-frame").contentWindow.postMessage({
-                number: 100,
-              }, "https://playcanv.as") }, 3000)
-          }
           <div className="people-fed">
             <p className="score">YOU'VE PROVIDED MEALS FOR {peopleFed} SO FAR!</p>
           </div>
