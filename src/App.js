@@ -12,33 +12,8 @@ import hamburgerIcon from './images/hamburger-icon.png';
 // Import CSS
 import './App.css';
 
-let seeds = 0;
 let peopleFed = 0;
 let player = 'Zane';
-
-// Assign handler to message event
-if ( window.addEventListener ) {
-    window.addEventListener('message', handleMessage, false);
-} else if ( window.attachEvent ) { // ie8
-    window.attachEvent('onmessage', handleMessage);
-}
-
-function handleMessage(e) {
-  // Reference to element for data display
-  document.innerHTML = e.data;
-console.log(e.data);
-seeds = e.data.number;
-//bubble_fn_1(e.data.command);
-//bubble_fn_2(e.data.number);
-//bubble_fn_3(e.data.string);
-}
-
-function initializeSeeds(n) {
-  document.getElementById("app-frame").contentWindow.postMessage({
-    command: "b-seedCounterUpdate",
-    number: n.toString()
-  }, "https://playcanv.as");
-}
 
 function App() {
 
@@ -108,12 +83,11 @@ function App() {
         <div className="game-ui">
           <div className="seeds">
             <div className="score">
-              <p>{seeds} SEEDS</p>
+              <p>{/* seeds */} SEEDS</p>
             </div>
             <p>START PLANTING!</p>
           </div>
           <iframe title="Farm to Feed Florida" id="app-frame" src="https://playcanv.as/e/p/BtcoDAra/" width="600" height="450"></iframe>
-          { initializeSeeds(100) }
           <div className="people-fed">
             <p className="score">YOU'VE PROVIDED MEALS FOR {peopleFed} SO FAR!</p>
           </div>
